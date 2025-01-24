@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import AuthButton from "./components/Authentication";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,15 +22,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <nav className="py-4">
-          <ul className="flex justify-center gap-6">
-            <li><Link href='/'>Home</Link></li>
-            <li><Link href='/profile'>Profile</Link></li>
-          </ul>
-        </nav>
-        {children}
+      <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+          <nav className="py-4">
+            <ul className="flex justify-center gap-6">
+              <li><Link href='/'>Home</Link></li>
+              <li><Link href='/profile'>Profile</Link></li>
+              <li> <AuthButton></AuthButton> </li>
+            </ul>
+          </nav>
+          {children}
       </body>
     </html>
   );
